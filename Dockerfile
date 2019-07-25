@@ -60,6 +60,9 @@ RUN mv composer.phar /usr/local/bin/composer && \
     composer self-update --preview
 RUN command -v composer
 
+# Add Prestissimo to speed up composer with parallel downloads
+RUN composer global require hirak/prestissimo
+
 # Node.js
 RUN curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
